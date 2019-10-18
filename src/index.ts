@@ -3,6 +3,7 @@ export * from "./Particle";
 export * from "./Emitter";
 export * from "./PathParticle";
 export * from "./AnimatedParticle";
+export * from "./AnimatedPathParticle";
 export * from "./PolygonalChain";
 export * from "./PropertyList";
 export * from "./PropertyNode";

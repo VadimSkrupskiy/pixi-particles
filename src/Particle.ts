@@ -8,6 +8,8 @@ import {Sprite, Point, Texture} from "pixi.js";
  */
 export class Particle extends Sprite
 {
+
+	public item_kill_callback: Function;
 	/**
 	 * The emitter that controls this particle.
 	 */
@@ -181,6 +183,8 @@ export class Particle extends Sprite
 		this.Particle_destroy = Particle.prototype.destroy;
 		this.applyArt = this.applyArt;
 		this.kill = this.kill;
+
+		this.item_kill_callback = emitter.item_kill_callback;
 	}
 
 	/**
@@ -254,6 +258,9 @@ export class Particle extends Sprite
 		if(this.age >= this.maxLife || this.age < 0)
 		{
 			this.kill();
+
+			if(this.item_kill_callback) this.item_kill_callback();
+			
 			return -1;
 		}
 

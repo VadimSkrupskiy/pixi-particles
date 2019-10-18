@@ -129,6 +129,8 @@
 				emitter.particleConstructor = PIXI.particles.PathParticle;
 			else if(type == "anim")
 				emitter.particleConstructor = PIXI.particles.AnimatedParticle;
+			else if(type == "anim_path")
+				emitter.particleConstructor = PIXI.particles.AnimatedPathParticle;
 
 			// Center on the stage
 			emitter.updateOwnerPos(window.innerWidth / 2, window.innerHeight / 2);

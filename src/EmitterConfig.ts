@@ -38,6 +38,8 @@ export interface EmitterConfig {
 	pos: {x:number, y:number};
 	emit?: boolean;
 	autoUpdate?: boolean;
+
+	item_kill_callback?: Function;
 }
 
 export interface RandNumber {
@@ -84,4 +86,6 @@ export interface OldEmitterConfig {
 	pos: {x:number, y:number};
 	emit?: boolean;
 	autoUpdate?: boolean;
+
+	item_kill_callback?: Function;
 }

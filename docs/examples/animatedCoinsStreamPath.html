@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Bubble Stream (path following)</title>
+		<meta name="description" content="bubble stream">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- Required dependencies -->
+		<script src="libs/pixi.js/dist/pixi.js"></script>
+		<script src="../dist/pixi-particles.js"></script>
+
+		<!-- Example scaffolding -->
+		<script src="js/ParticleExample.js"></script>
+
+	</head>
+	<body>
+		<div id="framerate"></div>
+		<div id="instructions">Click Anywhere</div>
+		<canvas id="stage" width="400" height="400"></canvas>
+		<script>
+
+			// See js/ParticleExample.js for actual setup
+			new ParticleExample(
+				{
+					spritesheet: "images/gold_anim.json",
+					art: [
+						{
+							framerate: 8,
+							loop: true,
+							textures: [
+								"gold_1.png",
+								"gold_2.png",
+								"gold_3.png",
+								"gold_4.png",
+								"gold_5.png",
+								"gold_6.png"
+							]
+						},
+						{
+							framerate: 8,
+							loop: true,
+							textures: [
+								"gold_6.png",
+								"gold_5.png",
+								"gold_4.png",
+								"gold_3.png",
+								"gold_2.png",
+								"gold_1.png"
+							]
+						}
+					],
+				},
+				{
+					"alpha": {
+						"start": 1,
+						"end": 0.16
+					},
+					"scale": {
+						"start": 0.6,
+						"end": 0.5,
+						"minimumScaleMultiplier":0.5
+					},
+					"color": {
+						"start": "ffffff",
+						"end": "ffffff"
+					},
+					"speed": {
+						"start": 150,
+						"end": 100
+					},
+					"startRotation": {
+						"min": 0,
+						"max": 0
+					},
+					"rotationSpeed": {
+						"min": 0,
+						"max": 0
+					},
+					"lifetime": {
+						"min": 1.8,
+						"max": 3
+					},
+					"blendMode": "normal",
+					"frequency": 0.1,
+					"emitterLifetime": 0,
+					"maxParticles": 500,
+					"pos": {
+						"x": 0,
+						"y": 0
+					},
+					"addAtBack": false,
+					"spawnType": "point",
+					"extraData":
+					{
+						"path":"sin(x/8)*10"
+					},
+					// callback on each particle destroy
+					"item_kill_callback" : ()=>{ console.log('end') }
+				},
+				//tell the particle example to use PIXI.particles.AnimatedPathParticle
+				"anim_path"
+			);
+		</script>
+	</body>
+</html>

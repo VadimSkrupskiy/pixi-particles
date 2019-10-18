@@ -36,6 +36,8 @@ const helperPoint = new Point();
  */
 export class Emitter
 {
+
+	public item_kill_callback: Function;
 	/**
 	 * The constructor used to create new particles. The default is
 	 * the built in particle class.
@@ -564,6 +566,8 @@ export class Emitter
 		this.rotation = 0;
 		this.ownerPos = new Point();
 		this.spawnPos = new Point(config.pos.x, config.pos.y);
+
+		this.item_kill_callback = config.item_kill_callback;
 
 		this.initAdditional(art, config);
 
